@@ -1,0 +1,120 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage[utf8]{inputenc}	% Diese Pakete sind
+\usepackage[T1]{fontenc}		% für die Verwendung 
+%\usepackage{ngerman}			% von Umlauten im tex-file
+%\usepackage{babel}
+\usepackage[english]{babel}    % changed to english, which corresponds to US english
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\setlength{\parindent}{0cm}
+\usepackage{lmodern}			% Schriftart, die am Bildschirm besser lesbar ist
+\usepackage{graphicx}			% Zum Einbinden von Formeln
+\usepackage{url}					% Zur Darstellung von Webadressen
+\usepackage{tikz}
+\usepackage[separate-uncertainty=true]{siunitx} %https://www.namsu.de/Extra/pakete/Siunitx.html
+\DeclareSIUnit{\Pixel}{Pixel}
+%\sisetup{locale = DE}
+\usepackage{subfig}
+\usepackage{comment}
+\usepackage{multirow} % Für Tabelleneinträge über mehrere Zeilen
+
+\usepackage{biblatex}
+
+
+\addbibresource{bibliography.bib}
+
+\usepackage[]{pdfpages} 
+
+
+\usepackage{tabularx}
+\usepackage{ragged2e} % Tabellenkonfiguration
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+
+
+
+\usepackage[mathscr]{euscript}
+\usepackage{mathrsfs}  %Mathe Zeug
+\usepackage{amsmath,amsthm,amssymb,latexsym,amsfonts}
+%\usepackage{showkeys}       
+\usepackage{textgreek} %Griechische Buchstaben ohne Mathmode
+\newcommand{\rpm}{\mathbin{\tikz [x=1.4ex,y=1.4ex,line width=.1ex] \draw (0.0,0) -- (1.0,0) (0.5,0.08) -- (0.5,0.92) (0.0,0.5) -- (1.0,0.5);}} %besseres Plus Minus Zeichen
+\usepackage{gensymb}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{a4paper, top=20mm, left=30mm, right=30mm, bottom=20mm, head=10mm, footskip=10mm}
+
+\pagenumbering{Roman}
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+\myTOC
+\clearpage
+\pagenumbering{arabic}
+}
+
+\begin{document}
+
+\begin{center}
+	{\scshape\LARGE ReadMe File \par}
+	\vspace{0.5cm}
+	{\scshape\Large Z0 decay \par} 
+	\vspace{1cm}
+	
+	\large{performed by} \par 
+	\vspace{0.5cm}
+	\large{Benjamin Steiner (E-Mail: beni-1997@web.de)} \par
+	\large{Jakob Gerlach (E-Mail: gerlachjakob@gmx.de)} \par
+	\vspace{0.5cm}
+	\large{March 22nd to April 1nd 2021} \par
+	\vspace{1cm}
+	\large{supervised by}\par
+	\vspace{0.5cm}
+	\large 
+	\textsc{Jose Pretel}\\
+\end{center}
+
+\vspace{2cm}
+We worked together on one notebook, so we commited our joint work in one commit.
+\vspace{0.5cm}
+
+\section*{Order of execution}
+
+The data analysis for this experiment is fully included within the Z0\_main.ipynb notebook. This Jupyter notebook is designed in such a way, that all variables, functions and packages are introduced previously to their use. Therefore the notebook is meant to be executed one cell after the other from top to bottom. The only exception is the first cell, which provides the installation of all needed Python packages. After this cell is executed, a restart of the kernel is recommended. After the restart the second and all subsequent cells can be executed. Executing the cells in a different order might cause errors.
+
+ 
+
+\section*{Structure of the notebook}
+
+The notebook is divided into different sections, which are separated by a header including \glqq \#\grqq{} and a number. Some sections are further subdivided to increase the clarity of arrangement. 
+In the first section the packages used for the data analysis are introduced and imported
+
+In the next cell, our data as they are read of from grope for the four different events are presented. We chose 30 events from the decay of the Z$^0$ particle into $e^-e^+$, $\mu^- \mu^+$, $\tau^- \tau^+$ and $hh$. 
+Histograms for a certain selection of variables are presented of these events, the contributions of the different decay channels are plotted in different colours.
+A few suggestions on how to separate the decay channels are proposed.
+
+In section 3 we start with the reading of the Monte Carlo data and the plotting of it in part A. 
+In part B, for each decay channel, a certain selection of cuts is presented that singles out the events of the respective decay channel. The efficiencies of the respective cuts are given as well as the efficiencies with which events of the other channels pass the mask.
+
+In part C, the separation of s- and t-channel electrons is investigated. The multiplication factor is calculated that is used to account for the cut out s-channel electrons.
+
+In part D, the efficiency matrix is presented with the corresponding error. In this section, the efficiency matrix is inverted and the errors of this inverted matrix are calculated. 
+
+In section 4, the data from the opal detector are processed. We used the data set called $daten\_4.root$. This is once again divided in different parts.
+
+In part A, the histograms are shown for a selection of variables.
+
+In part B, the same cuts were applied to the data as for the Monte Carlo simulations. To sort the data by centre of mass energy, seven energy masks were introduced as an additional cut.
+
+In part C, the cross sections were calculated with the efficiency matrix and the number of selected events from the cuts.
+Part D presents the Breit-Wigner fits to the different decay channel cross sections and the total cross section and plots the fits and the cross sections. With the Breit Wigner fits, the mass and the total decay width of the Z0 boson are determined.
+In section 5, the partial decay widths of the different decay channels are calculated.
+In section 6, the forward-backward asymmetry and subsequently the sine squared of the Weinberg angle is calculated for the Monte Carlo and the opal data.
+Section 7 calculates the number of neutrino generations.
+In section 8, the branching ratios are calculated.
+
+\end{document}
